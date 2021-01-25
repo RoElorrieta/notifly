@@ -3,7 +3,7 @@
 
 ## ABOUT.
 
-Notifly is a mobile app for airline crew scheduling teams to post the corresponding rosters to their cabin crew members and tech crew members. It is an intuitive and user-friendly app.
+Notifly is a mobile app for airline crew scheduling teams to post the corresponding rosters to their cabin crew members and tech crew members. Likewise, crew memebers are able to check out their monthly roster tables and access a flight exchange marketplace between crew members. It is an intuitive and user-friendly app.
 
 In this repo you will find the source codes for the project.
 
