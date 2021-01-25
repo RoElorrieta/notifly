@@ -21,17 +21,37 @@ CSS3/SASS/Bootstrap.
 
 Under MIT license.
 
-##DATABASE SCHEMAS:
+### DATABASE SCHEMAS:
+
+**Users**
 
 | KEY         | DATA TYPE   | REQUIRED      | VALIDATED |
 | :---        |    :----:   |        :----: |       ---:|
 | Name        | String      | yes           |           |
 | Mail        | String      | yes           |On RegExp  |
 | Base        | ObjID(ref)  | yes           |           |
-|Rank         | String      | no            |           |
-|Checkname    | String      | yes           |           |
-|CheckID      | Number      | yes           |           |
+| Rank        | String      | no            |           |
+| Checkname   | String      | yes           |           |
+| CheckID     | Number      | yes           |           |
 
+**Airports**
+
+| KEY         | DATA TYPE   | REQUIRED      | VALIDATED |
+| :---        |    :----:   |        :----: |       ---:|
+| Name        | String      | yes           |           |
+| Country     | String      | yes           |           |
+| IATAcode    | String      | yes           |           |
+| Base        | Boolean     | no            |           |
+
+**Flight**
+
+| KEY         | DATA TYPE   | REQUIRED      | VALIDATED |
+| :---        |    :----:   |        :----: |       ---:|
+| Code        | Number[]    | yes           |           |
+| Route       | ObjID(ref)[]| yes           |           |
+| Length      | Number      | yes           |           |
+| Fleet       | String      | yes           |           |
+| PAX         | Number      | yes           |           |
 
 ## Expresiones de Gratitud 🎁
 
