@@ -1,35 +1,37 @@
 # Notifly
 _  -
 
-## Comenzando 🚀
+## ABOUT.
 
-Estas instrucciones te permitirán obtener una copia del proyecto en funcionamiento en tu máquina local para propósitos de desarrollo y pruebas.
+Notifly is a mobile app for airline crew scheduling teams to post the corresponding rosters to their cabin crew members and tech crew members. It is an intuitive and user-friendly app.
 
-Realiza un fork en nuestro proyecto y tendrás una copia en tu cuenta, a partir de ese momento podras realizar las modificaciones y mejoras que desees.
+In this repo you will find the source codes for the project.
 
 
-### Pre-requisitos 📋
+### DEVELOPER.
 
-Necesitas un navegador tipo google Chrome, Mozilla Firefox
+Romina Elorrieta López: http://github.com/RoElorrieta
 
-## Construido con 🛠️
+## BUILT ON:
+JavaScript (NodeJS, Mongoose, Axios, and ExpressJS).
+HTML5.
+CSS3/SASS/Bootstrap.
 
-JavaScript, Node, Html5 y css3
+## LICENSE.
 
-* [visual Code]- El entorno para programar usado
-* [MongoAtlas] - Base de datos
-* [Heroku] -
-* [Node] -
-* [Express]
-* [macOSX] - Sistema operativo
+Under MIT license.
 
-## Autor ✒️
+##DATABASE SCHEMAS:
 
-* *Romina Elorrieta* - Programadora (programacion, diseño y analisis) - [RoElorrieta](https://github.com/RoElorrieta)
+| KEY         | DATA TYPE   | REQUIRED      | VALIDATED |
+| :---        |    :----:   |        :----: |       ---:|
+| Name        | String      | yes           |           |
+| Mail        | String      | yes           |On RegExp  |
+| Base        | ObjID(ref)  | yes           |           |
+|Rank         | String      | no            |           |
+|Checkname    | String      | yes           |           |
+|CheckID      | Number      | yes           |           |
 
-## Licencia 📄
-
-Este proyecto está bajo la Licencia (MIT License) - mira el archivo [LICENSE.md](LICENSE.md) para detalles
 
 ## Expresiones de Gratitud 🎁
 
