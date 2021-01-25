@@ -53,6 +53,5 @@ Under MIT license.
 | Fleet       | String      | yes           |           |
 | PAX         | Number      | yes           |           |
 
-## Expresiones de Gratitud 🎁
-
-* Mis profesores, geniales 📢
+## MANY THANKS TO:
+Coffee, Starbucks, Google, and the most important of them all: **my teachers!!**
