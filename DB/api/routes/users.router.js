@@ -11,9 +11,9 @@ const {
   authUser 
 } = require('../utils/authUser.js')
 
-router.get('/', authUser, getAllUsers) 
-router.get('/:checkID', authUser, getUserById)
-//router.delete('/:checkID', authUser, deleteByID)
-router.put('/:checkID', authUser, updateUser)
+router.get('/', authUser, getAllUsers) //para admin OK
+router.get('/:checkID', authUser, getUserById) //OK
+router.delete('/:checkID', authUser, deleteByID) //se queda pensando pero borra el usuario
+router.put('/:checkID', authUser, updateUser) //se queda pensando pero actualiza bien
 
 module.exports = router

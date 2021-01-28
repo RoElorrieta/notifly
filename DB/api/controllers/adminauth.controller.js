@@ -20,7 +20,7 @@ function adminSignUp(req, res) {
 
 function adminLogin(req, res) {
     adminModel
-        .findOne({ email: req.body.mail})
+        .findOne({ mail: req.body.mail})
         .then(admin => {
             if(!admin){
                 res.send('Unauthorized')
