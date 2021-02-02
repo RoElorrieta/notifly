@@ -10,8 +10,8 @@ const {
   authAdmin
 } = require('../utils/authAdmin') //midware
 
-router.post('/:checkID', authAdmin, createFlight) 
-router.put('/:checkID/:date', authAdmin, updateFlight)
-router.delete('/:checkID/:date', authAdmin, cancelFlight)
+router.post('/:checkID', authAdmin, createFlight) //lo crea en compass pero escupe el error en el js LOL
+router.put('/:checkID/:date', authAdmin, updateFlight) //NYET.cuidadin con el formato de la fecha
+router.delete('/:checkID/cancel/:date', authAdmin, cancelFlight) //NYET
 
 module.exports = router

@@ -30,9 +30,7 @@ const userSchema = new Schema ({
     },
     rank: String,
     base : {
-        type: mongoose.Schema.Types.ObjectId, //referencia a un ObjID de otro modelo
-        ref: 'airports'
-        //required: true
+        type: String,
     },
 });
 

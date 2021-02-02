@@ -5,7 +5,7 @@ function createFlight (req, res) {
         .create({
             date : req.body.date,
             code : req.body.code,
-            //route : req.body.route,
+            route : req.body.route,
             length : req.body.length,
             fleet : req.body.fleet,
             registration : req.body.registration,
@@ -24,7 +24,7 @@ function updateFlight (req, res) {
         .findByIdAndUpdate(req.params.id),{
             date : req.body.date,
             code : req.body.code,
-            //route : req.body.route,
+            route : req.body.route,
             length : req.body.length,
             fleet : req.body.fleet,
             registration : req.body.registration,
@@ -45,7 +45,7 @@ function cancelFlight (req, res) {
             res.send(flight)
         })
         .catch(err => {
-            res.status(500).send(`Could not delete flight ${flight}`)
+            res.status(500).send(`Could not delete flight ${FlightModel.code}`)
         })
 }
 module.exports = {

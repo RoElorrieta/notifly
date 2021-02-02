@@ -3,21 +3,16 @@ const Schema =  mongoose.Schema;
 
 const flightSchema = new Schema ({
     date : {
-        type: String, 
-        required: true
-    },
-    code : {
         type: Number, 
         required: true
     },
-    /*route : [
-            {type: mongoose.Schema.Types.ObjectId, 
-            ref : 'airports',
-            required: true},
-            {type: mongoose.Schema.Types.ObjectId, 
-            ref : 'airports',
-            required: true}
-        ],*/
+    code : {
+        type: String, 
+        required: true
+    },
+    route : [{
+        type: String,
+    }],
     length : {
         type: String, 
         required: true
