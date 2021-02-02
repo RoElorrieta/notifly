@@ -10,7 +10,7 @@ function getFlight (req, res) {
             res.status(404).send('Not found')
         })
 }
-
+/*
 function createFlight (req, res) {
     FlightModel
         .create({
@@ -23,13 +23,14 @@ function createFlight (req, res) {
             PAX : req.body.pax
         })
         .then(flight => {
+            flight.save()
             res.json(flight)
         })
         .catch(err => {
             res.status(500).send('Could not create flight')
         })
 }
-
+*/
 function updateFlight (req, res) {
     FlightModel
         .findByIdAndUpdate(req.params.id),{
@@ -61,7 +62,7 @@ function cancelFlight (req, res) {
 }
 module.exports = {
     getFlight,
-    createFlight,
+    //createFlight,
     updateFlight,
     cancelFlight
 };

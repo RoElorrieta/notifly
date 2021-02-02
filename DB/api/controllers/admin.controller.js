@@ -1,5 +1,7 @@
 const adminModel = require('../models/admin.model')
 const userModel = require('../models/users.model')
+const FlightModel = require ('../models/flights.model')
+const { Mongoose } = require('mongoose'); //<--- lo hace VSCode solito
 
 function getUserById (req, res) {
     userModel
@@ -20,7 +22,7 @@ function deleteByID (req, res) {
            console.log('User deleted succesfully');
        })
        .catch(err => {
-           res.status(500).error('Error on user deletion. Check out user ID');
+           res.status(500).send('Error on user deletion. Check out user ID');
        })
 }
 
@@ -31,9 +33,50 @@ function getAllUsers (req, res) {
           res.json(users);
       })
       .catch(err => {
-          res.status(500).error('Empty');
+          res.status(500).send('Empty');
       })
 }
+function createFlight (req, res) {
+    FlightModel
+        .create({
+            date : req.body.date,
+            code : req.body.code,
+            route : req.body.route,
+            length : req.body.length,
+            fleet : req.body.fleet,
+            registration : req.body.registration,
+            PAX : req.body.pax
+        })
+        .then(flight => {
+            flight.save()
+            res.json(flight)
+        })
+        .catch(err => {
+            res.status(500).send('Could not create flight')
+        })
+}
+
+function addFlight (req, res) {
+    console.log('Estoy aquí')
+    userModel
+        .findById({_id: req.params.checkID})
+        .then(user => {
+            console.log('ahora aquí')
+            user.flights.push(req.body.flight)
+            user.save()
+            .then(user => {
+                console.log('y ahora aquí')
+                res.status(200).json(user)
+                console.log('Flight added gracefully')
+            })
+            .catch(err => {
+                res.status(500).send('Flight not added')
+            })
+        })
+        .catch(err => {
+            res.status(500).send(`Could not add a new flight to this user's schedule`)
+        })
+   } 
 
 /*****************************************
  * ésto debe hacer uso del modelo de vuelo
@@ -43,5 +86,7 @@ function getAllUsers (req, res) {
 module.exports = {
     getUserById,
     deleteByID,
-    getAllUsers
+    getAllUsers,
+    createFlight,
+    addFlight
 };

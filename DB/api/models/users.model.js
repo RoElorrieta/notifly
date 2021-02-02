@@ -32,6 +32,9 @@ const userSchema = new Schema ({
     base : {
         type: String,
     },
+    flights: [{type: mongoose.Schema.Types.ObjectId,
+        ref: 'flight',
+    }],
 });
 
 const User = mongoose.model('user', userSchema);

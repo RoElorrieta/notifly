@@ -3,7 +3,8 @@ const router = require('express').Router()
 const {
   getAllUsers,
   getUserById,
-  deleteByID
+  deleteByID,
+  addFlight
 } = require('../controllers/admin.controller')
 
 const {
@@ -18,6 +19,7 @@ const {
 router.post('/', adminSignUp, adminLogin) //OK
 router.get('/all', authAdmin, getAllUsers) //OK
 router.get('/:checkID', authAdmin, getUserById)//OK
+router.put('/:checkID/flights', authAdmin, addFlight) //testing
 router.delete('/delete/:checkID', authAdmin, deleteByID)//OK
 
 module.exports = router
