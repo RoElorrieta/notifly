@@ -1,5 +1,16 @@
 const FlightModel = require ('../models/flights.model')
 
+function getFlight (req, res) {
+    FlightModel
+        .findById({_id :req.params.id})
+        .then(flight=>{
+            res.json(flight)
+        })
+        .catch(err => {
+            res.status(404).send('Not found')
+        })
+}
+
 function createFlight (req, res) {
     FlightModel
         .create({
@@ -49,6 +60,7 @@ function cancelFlight (req, res) {
         })
 }
 module.exports = {
+    getFlight,
     createFlight,
     updateFlight,
     cancelFlight
