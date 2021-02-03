@@ -57,15 +57,12 @@ function createFlight (req, res) {
 }
 
 function addFlight (req, res) {
-    console.log('Estoy aquí')
     userModel
         .findById({_id: req.params.checkID})
         .then(user => {
-            console.log('ahora aquí')
             user.flights.push(req.body.flight)
             user.save()
             .then(user => {
-                console.log('y ahora aquí')
                 res.status(200).json(user)
                 console.log('Flight added gracefully')
             })

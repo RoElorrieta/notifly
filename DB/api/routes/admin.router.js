@@ -19,7 +19,7 @@ const {
 router.post('/', adminSignUp, adminLogin) //OK
 router.get('/all', authAdmin, getAllUsers) //OK
 router.get('/:checkID', authAdmin, getUserById)//OK
-router.put('/:checkID/flights', authAdmin, addFlight) //testing
+router.put('/:checkID/flights', authAdmin, addFlight) //OK
 router.delete('/delete/:checkID', authAdmin, deleteByID)//OK
 
 module.exports = router
