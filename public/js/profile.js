@@ -1,11 +1,25 @@
-function createElement() {
+const api = axios.create({
+    baseURL: "http://localhost:3000",
+    timeout: 3000
+  });
+
+const createElement = (date, route, flight) => {
     let div = document.createElement("div");
     div.setAttribute("class", "d-flex w-100 justify-content-between");
-    div.setAttribute("id", "element");
-    div.innerHTML = `<h5>Showing flights for date: </h5>
-    <small></small>`;
+    div.setAttribute("id", "list-group-element");
+    div.innerHTML = `<h5>Showing flights for date:${date}</h5>
+    <small>${route}</small>`;
     let p = document.createElement("p");
     p.setAttribute("class", "mb-1");
-    p.innerHTML = `Info del vuelo`;
+    p.innerHTML = `Flight code: ${flight}`;
+    let small = document.createElement("small");
+    small.setAttribute("class", "small");
+    return div;
+}
+
+window.onload= function(){
+    document
+        .getElementsByClassName("list-group")
+        .appendChild(createElement(flight.date, flight.route, flight))
 }
 
