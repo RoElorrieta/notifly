@@ -1,9 +1,22 @@
+const { findById } = require('../models/users.model')
 const UserModel = require('../models/users.model')
 
 /************************************
  * REST functions. 
  * Obtain a user by id. 
  ***********************************/
+
+ function getProfile (req, res) {
+    UserModel
+        .findById(res.locals.user._id)
+        .populate('flights')
+        .then((user) => {
+            res.json(user)
+        })
+        .catch(err => {
+            res.status(500).send('User ID not found');
+        })     
+ }
 
 function getUserById (req, res) {
     UserModel
@@ -64,6 +77,7 @@ function updateUser (req, res) {
   }
 
 module.exports = {
+    getProfile,
     getUserById,
     updateUser,
     deleteByID,
