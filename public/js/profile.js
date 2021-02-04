@@ -29,11 +29,13 @@ window.onload= function() {
             <small id="code"></small>`
             div.appendChild(a)
         });
-        document.getElementById("route").innerText = profile.data.flights.route
-        document.getElementById("info-fleet").innerText = profile.data.flights.fleet
-        document.getElementById("info-registration").innerText = profile.data.flights.registration
-        document.getElementById("info-length").innerText = profile.data.flights.length
-        document.getElementById("info-pax").innerText = profile.data.flights.pax
+        let i= 0
+        document.getElementById("route").innerText = profile.data.flights[i].route
+        document.getElementById("info-fleet").innerText = profile.data.flights[i].fleet
+        document.getElementById("info-registration").innerText = profile.data.flights[i].registration
+        document.getElementById("info-length").innerText = profile.data.flights[i].length
+        document.getElementById("info-pax").innerText = profile.data.flights[i].pax
+        i++
     })
     .catch(err => {
         document.getElementById("name").innerText = "Could not load crew info"
