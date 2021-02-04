@@ -3,26 +3,39 @@ const api = axios.create({
     timeout: 3000
   });
 
+window.onload= function() {
+
   api
-    .get('/users/me', {headers: localStorage.token})
-
-const createElement = (date, route, flight) => {
-    let div = document.createElement("div");
-    div.setAttribute("class", "d-flex w-100 justify-content-between");
-    div.setAttribute("id", "list-group-element");
-    div.innerHTML = `<h5>Showing flights for date:${date}</h5>
-    <small>${route}</small>`;
-    let p = document.createElement("p");
-    p.setAttribute("class", "mb-1");
-    p.innerHTML = `Flight code: ${flight}`;
-    let small = document.createElement("small");
-    small.setAttribute("class", "small");
-    return div;
+    .get('/users/me', {headers: {token:localStorage.token}})
+    .then(profile => {
+        document.getElementById("name").innerText = profile.data.name
+        document.getElementById("checkid").innerText = profile.data.checkID
+        document.getElementById("mail").innerText = profile.data.mail
+        document.getElementById("base").innerText = "TFS"
+        const div = document.getElementById("main")
+        profile.data.flights.forEach(flight => {
+            let a = document.createElement("a")
+            a.classList.add("list-group-item", "list-group-item-action")
+            a.innerHTML = `
+            <div class="d-flex w-100 justify-content-between" id= "element">
+            <h5 class="mb-1" id="header">Operating flight</h5>
+            <small id="date"></small>
+            <small id="route"></small>
+            </div>
+            <p class="mb-1" id="info-fleet"></p>
+            <p class="mb-1" id="info-registration"></p>
+            <p class="mb-1" id="info-length"></p>
+            <p class="mb-1" id="info-pax"></p>
+            <small id="code"></small>`
+            div.appendChild(a)
+        });
+        document.getElementById("route").innerText = profile.data.flights.route
+        document.getElementById("info-fleet").innerText = profile.data.flights.fleet
+        document.getElementById("info-registration").innerText = profile.data.flights.registration
+        document.getElementById("info-length").innerText = profile.data.flights.length
+        document.getElementById("info-pax").innerText = profile.data.flights.pax
+    })
+    .catch(err => {
+        document.getElementById("name").innerText = "Could not load crew info"
+    })
 }
-
-window.onload= function(){
-    document
-        .getElementsByClassName("list-group")
-        .appendChild(createElement(flight.date, flight.route, flight))
-}
-
