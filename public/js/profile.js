@@ -13,29 +13,29 @@ window.onload= function() {
         document.getElementById("mail").innerText = profile.data.mail
         document.getElementById("base").innerText = "TFS"
         const div = document.getElementById("main")
-        profile.data.flights.forEach(flight => {
+        profile.data.flights.forEach((flight, i) => {
             let a = document.createElement("a")
             a.classList.add("list-group-item", "list-group-item-action")
             a.innerHTML = `
-            <div class="d-flex w-100 justify-content-between" id= "element">
-            <h5 class="mb-1" id="header">Operating flight</h5>
-            <small id="date"></small>
-            <small id="route"></small>
+            <div class="d-flex w-100 justify-content-between" id= "element${i}">
+            <h5 class="mb-1" id="header${i}">Operating flight</h5>
+            <small id="date${i}"></small>
+            <small id="route${i}"></small>
             </div>
-            <p class="mb-1" id="info-fleet"></p>
-            <p class="mb-1" id="info-registration"></p>
-            <p class="mb-1" id="info-length"></p>
-            <p class="mb-1" id="info-pax"></p>
-            <small id="code"></small>`
+            <p class="mb-1" id="info-fleet${i}"></p>
+            <p class="mb-1" id="info-registration${i}"></p>
+            <p class="mb-1" id="info-length${i}"></p>
+            <p class="mb-1" id="info-pax${i}"></p>
+            <small id="code${i}"></small>`
+            console.log(a)
             div.appendChild(a)
-        });
-        let i= 0
-        document.getElementById("route").innerText = profile.data.flights[i].route
-        document.getElementById("info-fleet").innerText = profile.data.flights[i].fleet
-        document.getElementById("info-registration").innerText = profile.data.flights[i].registration
-        document.getElementById("info-length").innerText = profile.data.flights[i].length
-        document.getElementById("info-pax").innerText = profile.data.flights[i].pax
-        i++
+
+            document.getElementById(`route${i}`).innerText =flight.route
+            document.getElementById(`info-fleet${i}`).innerText =flight.fleet
+            document.getElementById(`info-registration${i}`).innerText =flight.registration
+            document.getElementById(`info-length${i}`).innerText =flight.length
+            document.getElementById(`info-pax${i}`).innerText =flight.PAX
+        })
     })
     .catch(err => {
         document.getElementById("name").innerText = "Could not load crew info"
